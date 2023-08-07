@@ -1,2 +1,2 @@
 # Leetcode_Daily
-Comtains the solutions to leetcode daily questions
+Contains the solutions to leetcode daily questions
