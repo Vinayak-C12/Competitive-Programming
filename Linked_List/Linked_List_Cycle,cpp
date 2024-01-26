@@ -1,0 +1,71 @@
+//Leetcode - Linked List Cycle - Easy
+//https://leetcode.com/problems/linked-list-cycle/description/
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {// O(1) - Space O(n) - Time
+        ListNode* slow;
+        ListNode* fast;
+        fast = head;
+        slow = head;
+        while(fast != NULL && fast->next != NULL)
+        {
+            slow = slow->next;
+            fast = fast->next->next;
+            if(slow == fast)
+            {
+                return true;
+            }
+        }
+        return false;
+        
+    }
+};
+
+//APPROACH - 2 : Using Set - O(n) - Time O(n) - Space
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        ListNode* curr = head;        
+        if(head == NULL)
+        {
+            return false;
+        }
+        if(head->next == NULL)
+        {
+            return false;
+        }
+        bool status = false;
+        unordered_set<ListNode*> us;
+        while(curr!=NULL)
+        {
+            if(us.find(curr)!=us.end())
+            {
+                status = true;
+                break;
+            }
+            us.insert(curr);
+            curr = curr->next;
+        }
+
+        return status;
+        
+    }
+};
