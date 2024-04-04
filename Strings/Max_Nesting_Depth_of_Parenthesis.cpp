@@ -6,7 +6,7 @@ public:
     int maxDepth(string s) {
         int n = s.size();
         int count = 0;
-        // int max_num = ge0;
+        int max_num = ge0;
         for(auto c :s)
         {
             if(c == '(')
